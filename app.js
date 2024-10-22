@@ -45,3 +45,48 @@ canvas.addEventListener('mousemove', (e) => {
         drawShape(startX, startY, endX, endY);  // Draw shape based on the movement of the mouse
     }
 });
+
+// Function to draw shapes based on the selected shape and postions of the mouse
+function drawShape(startX, startY, endX, endY) {
+    // Clear the canvas before drawing a new shape to avoid overlaps if present
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Set the stroke color to the selected color from the color picker
+    ctx.strokeStyle = selectedColor;
+
+    // Switch statement to handle drawing the different shapes
+    switch (selectedShape) {
+        case 'line':
+            drawLine(startX, startY, endX, endY);  // Call function to draw a line
+            break;
+        case 'rectangle':
+            drawRectangle(startX, startY, endX, endY);  // Call function to draw a rectangle
+            break;
+        case 'circle':
+            drawCircle(startX, startY, endX, endY);  // Call function to draw a circle
+            break;
+    }
+}
+
+// Function to draw a line from (startX, startY) to (endX, endY)
+function drawLine(startX, startY, endX, endY) {
+    ctx.beginPath();  // Start a new path for the line
+    ctx.moveTo(startX, startY);  // Move to the starting point
+    ctx.lineTo(endX, endY);  // Draw a line to the end point
+    ctx.stroke();  // Render the line
+}
+
+// Function to draw a rectangle
+function drawRectangle(startX, startY, endX, endY) {
+    ctx.beginPath();  // Start a new path for the rectangle
+    ctx.rect(startX, startY, endX - startX, endY - startY);  // Create a rectangle from start to end points
+    ctx.stroke();  // Render the rectangle
+}
+
+// Function to draw a circle
+function drawCircle(startX, startY, endX, endY) {
+    const radius = Math.sqrt(Math.pow((endX - startX), 2) + Math.pow((endY - startY), 2));  // Calculate radius
+    ctx.beginPath();  // Start a new path for the circle
+    ctx.arc(startX, startY, radius, 0, Math.PI * 2);  // Create a circle with the calculated radius
+    ctx.stroke();  // Render the circle
+}
