@@ -90,3 +90,8 @@ function drawCircle(startX, startY, endX, endY) {
     ctx.arc(startX, startY, radius, 0, Math.PI * 2);  // Create a circle with the calculated radius
     ctx.stroke();  // Render the circle
 }
+
+// Event listener to clear the canvas when the "Clear" button is clicked
+document.getElementById('clear').addEventListener('click', () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);  // Clear the entire canvas
+});
