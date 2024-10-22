@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Drawing Application</title>
+    <style>
+        /* Canvas element styling */
+        canvas {
+            border: 1px solid black;
+        }
+        /* Making a margin between controls and canvas */
+        #controls {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Controls for selecting shape, color, and clearing the canvas -->
+<div id="controls">
+    <!-- These are the radio buttons for shape selection -->
+    <label>
+        <input type="radio" name="shape" value="line" checked> Line
+    </label>
+    <label>
+        <input type="radio" name="shape" value="rectangle"> Rectangle
+    </label>
+    <label>
+        <input type="radio" name="shape" value="circle"> Circle
+    </label>
+
+    <!-- Color picker for choosing drawing color -->
+    <label for="color">Choose color:</label>
+    <input type="color" id="color" value="#000000">
+
+    <!-- Button to clear the canvas -->
+    <button id="clear">Clear Canvas</button>
+</div>
+
+<!-- This is the canvas where shapes will be drawn -->
+<canvas id="drawingCanvas" width="800" height="600"></canvas>
+
+<!-- Link to JavaScript file -->
+<script src="app.js"></script>
+</body>
+</html>
